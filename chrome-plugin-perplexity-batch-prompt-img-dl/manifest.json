@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Perplexity Multi-Prompt Queue",
+  "version": "1.0",
+  "description": "Send multiple prompts to Perplexity via the web interface, one after another.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*"
+      ],
+      "js": ["contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ]
+}
+
